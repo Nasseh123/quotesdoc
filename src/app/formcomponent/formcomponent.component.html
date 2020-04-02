@@ -1,0 +1,42 @@
+<div class="container-fluid">
+     
+    <hr>
+    <!-- #quoteForm='ngForm' -->
+    <form (ngSubmit)='submitQuote()' #formcomponent='ngForm' class="cd" >
+        <div class="form-group">
+  
+            <label for="description" >Quote</label>
+            <textarea class="form-control" id="quote" [(ngModel)]="newQuote.quote" name="quote"rows="3" required></textarea>
+            
+        </div>
+        <div class="form-group">
+  
+            <label for="author" >Authors Name</label>
+            <input type="text" required class="form-control" id="author" [(ngModel)]="newQuote.author" name="author" #author='ngModel'>
+            <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+                <p>Author's Name is required!</p>
+              </div>
+        </div>
+
+
+        <div class="form-group">
+  
+            <label for="personSubmitted" >Your Name</label>
+            <input type="text" required class="form-control" id="personSubmitted" [(ngModel)]="newQuote.personSubmitted" name="personSubmitted" #personSubmitted='ngModel'>
+            <div [hidden]="personSubmitted.valid || personSubmitted.pristine" class="alert alert-danger">
+                <p>Your Name is required!</p>
+              </div>
+        </div>
+        <div class="form-group">
+  
+            <label for="name" >entryDate</label>
+            <input type="date" required class="form-control ddd" id="entryDate" [(ngModel)]="newQuote.entryDate" name="entryDate" #entryDate='ngModel'>
+            <div [hidden]="!entryDate.valid || entryDate.pristine" class="alert alert-danger">
+                <p>Date is required</p>
+              </div>
+        </div>
+        
+        
+        <button [disabled]="!formcomponent.form.valid" id="btn" type="submit" class="btn btn-success bgbg">SUbmit Quote</button>
+    </form>
+</div>

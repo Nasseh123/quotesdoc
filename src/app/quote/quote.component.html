@@ -1,0 +1,46 @@
+<div class="bo">
+<div class="text-center ttt">
+  <H2 id="tc">Welcome To</H2>
+  <h2>METHALI App</h2>
+  <p id="ts">We Give you chance to enlighten the world with quotes You have heard about OR Your OWN QUOTES!!</p>
+</div>
+<img src="../assets" alt="">
+</div>
+<!-- Quotes Section-->
+<div class="qq">
+  <H1 id="head"><u>QUOTES SECTION</u></H1>
+  <a href="#quo"   class="btn btn-success text-center ccc">Create a new Quote </a>
+  <div class="row body">
+    
+    
+    <div class="col-md-6 container ccc">
+      <h2 class="">Quotes..</h2>
+      <div *ngFor='let quote of quotes;let i=index'>
+        
+        <div class="card ca" id="{{i}}" appHighlight>
+          <h3><span class="by">by</span> {{quote.author}}</h3>
+          <p class="pi"> {{quote.quote}}...
+          </p>
+          <button (click)='toggleDetails(i)' class="btn btn-info toogle" >Show Details</button>
+          
+          <div class="card-footer pp" *ngIf='quote.PersonSubmitted'>
+            <app-quotedetails  [quote]='quote' (isComplete) = 'deleteQuote($event,i)'></app-quotedetails>
+          </div>
+         
+        
+          
+        </div>
+  
+      </div>
+  
+    </div>
+    <div class="col-md-7 cd" id="quo" >
+      <app-formcomponent (addQuote)="addNewQuote($event)"></app-formcomponent>
+      
+    </div>
+  
+  </div>
+</div>
+
+
+

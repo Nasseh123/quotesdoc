@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<p><span class="by">Written by;</span> {{quote.personSubmitted}} </p>
+Posted {{quote.entryDate|dateCount}} Days Ago
+<div >
+    <button type="button" (click)="quote.upvote=quote.upvote+1 "class="btn btn-info bt "><span>LIKE</span> {{quote.upvote}}</button>
+    <button type="button" (click)="quote.downvote=quote.downvote-1 "class="btn  btn-info bt"><span>DISLIKE</span> {{quote.downvote}}</button>
+</div>
+
+<br>
+<button (click)= 'quoteDelete(true)' class="btn-danger">DELETE</button>
+    
